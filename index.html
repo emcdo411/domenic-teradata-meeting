@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teradata AI Governance Accountability Brief | Epoch Frameworks</title>
+  <meta name="description" content="Executive AI governance accountability brief using DARE, ESIL, SHT, CES, MOC, and EBT lenses." />
+  <style>
+    :root {
+      --ink: #24243f;
+      --muted: #6f7382;
+      --bg: #f7f6fb;
+      --panel: #ffffff;
+      --line: #ded9ec;
+      --purple: #7760a8;
+      --deep: #2b2f77;
+      --soft: #ece8f6;
+      --green: #1f7a4d;
+      --orange: #b66a18;
+      --red: #a13d4f;
+      --shadow: 0 18px 50px rgba(38, 35, 75, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at top left, #ffffff 0, var(--bg) 38%, #f2f0f8 100%);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 54px 0 28px;
+    }
+
+    .eyebrow {
+      color: var(--purple);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.35rem, 5vw, 5rem);
+      line-height: 0.95;
+      margin: 0 0 20px;
+      color: var(--deep);
+      letter-spacing: -0.055em;
+      max-width: 980px;
+    }
+
+    .subtitle {
+      max-width: 850px;
+      font-size: 1.18rem;
+      color: var(--muted);
+      margin: 0 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: stretch;
+      margin: 28px 0 52px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .thesis {
+      font-size: clamp(1.45rem, 2.2vw, 2rem);
+      line-height: 1.18;
+      font-weight: 750;
+      color: var(--deep);
+      margin: 0;
+    }
+
+    .note {
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    .scorebox {
+      display: grid;
+      gap: 14px;
+    }
+
+    .score {
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: var(--deep);
+      line-height: 1;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--deep);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 26px 0;
+    }
+
+    h2 {
+      font-size: clamp(1.65rem, 3vw, 2.5rem);
+      margin: 0 0 16px;
+      color: var(--deep);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      color: var(--ink);
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .mini {
+      border-radius: 20px;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .letter {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--deep);
+      color: white;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .flow div {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 16px;
+      border-radius: 18px;
+      font-weight: 750;
+      color: var(--deep);
+      text-align: center;
+    }
+
+    .image-card img {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .callout {
+      border-left: 5px solid var(--purple);
+      background: #fff;
+      padding: 22px 24px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--deep);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid var(--line);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--soft);
+      color: var(--deep);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .cta {
+      background: linear-gradient(135deg, var(--deep), var(--purple));
+      color: white;
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 { color: white; }
+    .cta p { color: rgba(255,255,255,0.84); max-width: 820px; }
+
+    .button {
+      display: inline-block;
+      margin-top: 14px;
+      background: white;
+      color: var(--deep);
+      text-decoration: none;
+      font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 999px;
+    }
+
+    footer {
+      color: var(--muted);
+      padding: 36px 0 54px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .two-col, .grid-4, .flow { grid-template-columns: 1fr; }
+      header { padding-top: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="eyebrow">Epoch Frameworks LLC | McDonald 2026</div>
+    <h1>Teradata AI Governance Accountability Brief</h1>
+    <p class="subtitle">A client ready executive page built from the DARE, ESIL, SHT, CES, MOC, and EBT framework stack. The focus is not whether platform governance exists. The focus is whether accountability has an owner.</p>
+    <div class="badge-row">
+      <span class="pill">DARE Layer</span>
+      <span class="pill">ESIL v1.0</span>
+      <span class="pill">SHT Scorecard</span>
+      <span class="pill">CES Scoring Layer</span>
+      <span class="pill">DACR v2.6</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero-grid">
+      <article class="card">
+        <p class="thesis">Automated governance is not the same as accountability architecture.</p>
+        <p class="note">Teradata can provide platform controls, guardrails, evaluations, and compliance checks. The strategic gap is whether the client has a named operations sponsor responsible for post deployment review, drift detection, and decision loop closure.</p>
+      </article>
+      <aside class="card scorebox">
+        <div class="eyebrow">SHT Read</div>
+        <div class="score">61/100</div>
+        <div><strong>Zone:</strong> Extraction Emerging</div>
+        <div><strong>Primary gap:</strong> Operations sponsor accountability</div>
+      </aside>
+    </div>
+
+    <section>
+      <h2>The DARE Diagnostic</h2>
+      <div class="grid-4">
+        <div class="mini">
+          <div class="letter">D</div>
+          <h3>Data</h3>
+          <p>Tests whether insight is converted into governed action, not merely captured in dashboards or platform telemetry.</p>
+        </div>
+        <div class="mini">
+          <div class="letter">A</div>
+          <h3>Agility</h3>
+          <p>Tests whether legacy assumptions expire before they become governance risk in autonomous AI environments.</p>
+        </div>
+        <div class="mini">
+          <div class="letter">R</div>
+          <h3>Risks</h3>
+          <p>Tests whether compliance language is hiding a missing owner, stale criteria, or disruption deferral.</p>
+        </div>
+        <div class="mini">
+          <div class="letter">E</div>
+          <h3>Evolution</h3>
+          <p>Tests whether leadership is operating from future accountability requirements or prior cycle platform comfort.</p>
+        </div>
+      </div>
+      <div class="flow">
+        <div>Define reality</div>
+        <div>Assess the gap</div>
+        <div>Reframe risk</div>
+        <div>Execute entry</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>SHT Scorecard</h2>
+      <div class="card image-card">
+        <img src="visuals/teradata_sht_fred_analysis.png" alt="SHT Analysis Teradata systemic harm threshold scorecard" onerror="this.src='teradata_sht_fred_analysis.png'" />
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div class="card">
+        <h2>Core Finding</h2>
+        <p>Public positioning supports Teradata's platform governance capability. It does not publicly confirm a required client side operations sponsor embedded in the engagement model.</p>
+        <p>That distinction matters because the regulatory direction of travel requires named human accountability, not only automated controls.</p>
+      </div>
+      <div class="card">
+        <h2>Conversation Hook</h2>
+        <div class="callout">The gap I am seeing is not whether Teradata can govern models at the platform layer. The gap is whether the client has a named operations sponsor responsible for closing the post deployment accountability loop.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Framework Stack</h2>
+      <table>
+        <thead>
+          <tr><th>Layer</th><th>Role</th><th>Client Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ESIL</td><td>External Signal Intelligence Layer</td><td>Validates claims against regulatory, academic, and market signals</td></tr>
+          <tr><td>MOC</td><td>Model of Constraint</td><td>Identifies the binding bottleneck</td></tr>
+          <tr><td>CES</td><td>Composite Enforcement Score</td><td>Tests whether criteria remain valid under changing conditions</td></tr>
+          <tr><td>SHT</td><td>Systemic Harm Threshold</td><td>Scores structural dependency and extraction risk</td></tr>
+          <tr><td>DARE</td><td>AI Adoption Intelligence</td><td>Turns complexity into an executive entry point</td></tr>
+          <tr><td>EBT</td><td>Evaluative Bias Transference</td><td>Flags accountability laundering and compliance as cover</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="cta">
+      <h2>Suggested Next Step</h2>
+      <p>A focused 4 week paid sprint can map the current AI governance accountability loop, identify where platform controls stop, define the operations sponsor role, and produce a board ready accountability architecture brief.</p>
+      <a class="button" href="mailto:?subject=AI Governance Accountability Brief&body=I wanted to share this executive brief on automated governance versus accountability architecture.">Share Brief</a>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div>McDonald (2026) | Epoch Frameworks LLC | DACR License v2.6</div>
+    <div>Decision support instrument. Not a third party audited measurement.</div>
+  </footer>
+</body>
+</html>
