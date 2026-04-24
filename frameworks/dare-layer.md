@@ -71,3 +71,13 @@ Define:
 
 ```text
 DEFINE → ASSESS → REFRAME → EXECUTE
+
+Core Principle
+
+Complexity hides accountability
+DARE exposes it
+
+Attribution
+
+McDonald (2026)
+Epoch Frameworks LLC
